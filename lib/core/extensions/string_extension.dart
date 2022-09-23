@@ -15,5 +15,5 @@ extension StringLocalization on String {
 }
 
 extension ImagePathExtension on String {
-  String get toSVG => 'asset/svg/$this.svg';
+  String get toSVG => 'assets/svg/$this.svg';
 }
