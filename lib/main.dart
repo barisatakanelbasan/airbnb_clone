@@ -1,15 +1,25 @@
+import 'package:airbnb_clone/core/constants/app/app_constants.dart';
+import 'package:airbnb_clone/core/init/lang/language_manager.dart';
 import 'package:airbnb_clone/core/init/navigation/navigation_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'core/init/navigation/navigation_route.dart';
 
 void main() async {
   await _init();
-  runApp(const MyApp());
+  runApp(
+    EasyLocalization(
+      supportedLocales: LanguageManager.instance.supportedLocales,
+      path: ApplicationConstants.LANG_ASSET_PATH,
+      fallbackLocale: LanguageManager.instance.enLocale,
+      child: const MyApp(),
+    ),
+  );
 }
 
 Future<void> _init() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await EasyLocalization.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   // await Firebase.initializeApp();
 }
 
