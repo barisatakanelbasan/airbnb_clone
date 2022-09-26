@@ -40,7 +40,7 @@ class _HomePageViewState extends State<HomePageView> {
       items: [
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
-            'search'.toSVG,
+            'ic_search'.toSVG,
             color: currentIndex == 0 ? Colors.red : Colors.grey,
             height: 29,
           ),
@@ -48,7 +48,7 @@ class _HomePageViewState extends State<HomePageView> {
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
-            'fav'.toSVG,
+            'ic_fav'.toSVG,
             color: currentIndex == 1 ? Colors.red : Colors.grey,
             height: 25,
           ),
@@ -56,7 +56,7 @@ class _HomePageViewState extends State<HomePageView> {
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
-            'airbnb'.toSVG,
+            'ic_airbnb'.toSVG,
             color: currentIndex == 2 ? Colors.red : Colors.grey,
             height: 25,
           ),
@@ -64,7 +64,7 @@ class _HomePageViewState extends State<HomePageView> {
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
-            'inbox'.toSVG,
+            'ic_inbox'.toSVG,
             color: currentIndex == 3 ? Colors.red : Colors.grey,
             height: 20,
           ),
@@ -72,7 +72,7 @@ class _HomePageViewState extends State<HomePageView> {
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
-            'profile'.toSVG,
+            'ic_profile'.toSVG,
             color: currentIndex == 4 ? Colors.red : Colors.grey,
             height: 23,
           ),
