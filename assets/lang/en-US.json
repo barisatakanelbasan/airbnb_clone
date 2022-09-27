@@ -1,3 +1,10 @@
 {
-    "welcome": "Welcome to My App"
+    "welcome": "Welcome to My App",
+    "bottom_bar_buttons": {
+        "explore": "Explore",
+        "wishlists": "Wishlists",
+        "trips": "Trips",
+        "inbox": "Inbox",
+        "profile": "Profile"
+    }
 }

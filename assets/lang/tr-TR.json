@@ -1,3 +1,10 @@
 {
-    "welcome": "Welcome to My App"
+    "welcome": "Welcome to My App",
+    "bottom_bar_buttons": {
+        "explore": "Keşfet",
+        "wishlists": "Favoriler",
+        "trips": "Geziler",
+        "inbox": "Gelen",
+        "profile": "Profil"
+    }
 }
