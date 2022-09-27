@@ -1,7 +1,10 @@
 import 'package:airbnb_clone/core/extensions/string_extension.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../core/init/lang/locale_keys.g.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -44,7 +47,7 @@ class _HomePageViewState extends State<HomePageView> {
             color: currentIndex == 0 ? Colors.red : Colors.grey,
             height: 29,
           ),
-          label: 'Explore',
+          label: LocaleKeys.bottom_bar_buttons_explore.tr(),
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -52,7 +55,7 @@ class _HomePageViewState extends State<HomePageView> {
             color: currentIndex == 1 ? Colors.red : Colors.grey,
             height: 25,
           ),
-          label: 'Wishlists',
+          label: LocaleKeys.bottom_bar_buttons_wishlists.tr(),
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -60,7 +63,7 @@ class _HomePageViewState extends State<HomePageView> {
             color: currentIndex == 2 ? Colors.red : Colors.grey,
             height: 25,
           ),
-          label: 'Trips',
+          label: LocaleKeys.bottom_bar_buttons_trips.tr(),
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -68,7 +71,7 @@ class _HomePageViewState extends State<HomePageView> {
             color: currentIndex == 3 ? Colors.red : Colors.grey,
             height: 20,
           ),
-          label: 'Inbox',
+          label: LocaleKeys.bottom_bar_buttons_inbox.tr(),
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -76,7 +79,7 @@ class _HomePageViewState extends State<HomePageView> {
             color: currentIndex == 4 ? Colors.red : Colors.grey,
             height: 23,
           ),
-          label: 'Profile',
+          label: LocaleKeys.bottom_bar_buttons_profile,
         ),
       ],
     );
