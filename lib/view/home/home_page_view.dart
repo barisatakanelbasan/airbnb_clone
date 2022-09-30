@@ -1,9 +1,10 @@
 import 'package:airbnb_clone/core/extensions/string_extension.dart';
+import 'package:airbnb_clone/product/widgets/advert_widgets/advert_card_widget.dart';
+import 'package:airbnb_clone/product/widgets/common_widgets/shimmer_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../core/init/lang/locale_keys.g.dart';
 
 class HomePageView extends StatefulWidget {
@@ -18,8 +19,15 @@ class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text('Home Page'),
+      body: Column(
+        children: [
+          Center(
+            child: ShimmerWidget(
+              enabled: false,
+              child: AdvertCardWidget(),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: buildBottomBar(),
     );
@@ -79,7 +87,7 @@ class _HomePageViewState extends State<HomePageView> {
             color: currentIndex == 4 ? Colors.red : Colors.grey,
             height: 23,
           ),
-          label: LocaleKeys.bottom_bar_buttons_profile,
+          label: LocaleKeys.bottom_bar_buttons_profile.tr(),
         ),
       ],
     );

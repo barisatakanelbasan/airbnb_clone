@@ -32,13 +32,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Airbnb Clone',
       debugShowCheckedModeBanner: false,
+      onGenerateRoute: NavigationRoute.instance.generateRoute,
+      navigatorKey: NavigationService.instance.navigatorKey,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       theme: ThemeData(
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,
       ),
-      onGenerateRoute: NavigationRoute.instance.generateRoute,
-      navigatorKey: NavigationService.instance.navigatorKey,
     );
   }
 }
