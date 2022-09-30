@@ -150,6 +150,7 @@ analysis_benchmark.json
 .buildlog/
 .history
 .svn/
+*lib/core/vitals/
 
 # Node.js
 logs
