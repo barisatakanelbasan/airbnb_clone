@@ -1,10 +1,9 @@
-import 'package:airbnb_clone/core/extensions/string_extension.dart';
+import 'package:airbnb_clone/product/generation/assets.gen.dart';
+import 'package:airbnb_clone/product/generation/colors.gen.dart';
 import 'package:airbnb_clone/product/widgets/advert_widgets/advert_card_widget.dart';
 import 'package:airbnb_clone/product/widgets/common_widgets/shimmer_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
 class HomePageView extends StatefulWidget {
@@ -40,7 +39,7 @@ class _HomePageViewState extends State<HomePageView> {
       unselectedFontSize: 11.5,
       iconSize: 25,
       currentIndex: currentIndex,
-      selectedItemColor: Colors.red,
+      selectedItemColor: ColorName.red,
       unselectedIconTheme: const IconThemeData(color: Colors.grey),
       type: BottomNavigationBarType.fixed,
       onTap: (index) {
@@ -50,41 +49,36 @@ class _HomePageViewState extends State<HomePageView> {
       },
       items: [
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'ic_search'.toSVG,
-            color: currentIndex == 0 ? Colors.red : Colors.grey,
+          icon: Assets.svg.icSearch.svg(
             height: 29,
+            color: currentIndex == 0 ? ColorName.red : ColorName.grey,
           ),
           label: LocaleKeys.bottom_bar_buttons_explore.tr(),
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'ic_fav'.toSVG,
-            color: currentIndex == 1 ? Colors.red : Colors.grey,
+          icon: Assets.svg.icFav.svg(
+            color: currentIndex == 1 ? ColorName.red : ColorName.grey,
             height: 25,
           ),
           label: LocaleKeys.bottom_bar_buttons_wishlists.tr(),
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'ic_airbnb'.toSVG,
-            color: currentIndex == 2 ? Colors.red : Colors.grey,
+          icon: Assets.svg.icAirbnb.svg(
+            color: currentIndex == 2 ? Colors.red : ColorName.grey,
             height: 25,
           ),
           label: LocaleKeys.bottom_bar_buttons_trips.tr(),
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'ic_inbox'.toSVG,
-            color: currentIndex == 3 ? Colors.red : Colors.grey,
+          icon: Assets.svg.icInbox.svg(
+            color: currentIndex == 3 ? Colors.red : ColorName.grey,
             height: 20,
           ),
           label: LocaleKeys.bottom_bar_buttons_inbox.tr(),
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'ic_profile'.toSVG,
-            color: currentIndex == 4 ? Colors.red : Colors.grey,
+          icon: Assets.svg.icProfile.svg(
+            color: currentIndex == 4 ? Colors.red : ColorName.grey,
             height: 23,
           ),
           label: LocaleKeys.bottom_bar_buttons_profile.tr(),
