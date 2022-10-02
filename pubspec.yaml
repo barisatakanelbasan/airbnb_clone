@@ -32,9 +32,6 @@ dependencies:
   
   analyzer: ^5.1.0
 
-  # Package Name Changer
-  change_app_package_name: ^1.1.0
-
   # The following adds the Cupertino Icons font to your application.
   cupertino_icons: ^1.0.2
 
@@ -61,6 +58,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   # Code generation tool
   build_runner: ^2.2.1
+  # Package Name Changer
+  change_app_package_name: ^1.1.0
   # 
   flutter_gen_runner: ^5.0.1
   # Analyzer

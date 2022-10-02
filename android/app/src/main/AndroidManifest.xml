@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.airbnb_clone">
+    package="com.airbnb_clone_flutter">
    <application
         android:label="airbnb_clone"
         android:name="${applicationName}"
