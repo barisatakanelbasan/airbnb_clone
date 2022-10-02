@@ -1,4 +1,4 @@
-package com.example.airbnb_clone
+package com.airbnb_clone_flutter
 
 import io.flutter.embedding.android.FlutterActivity
 
