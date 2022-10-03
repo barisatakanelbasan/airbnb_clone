@@ -36,3 +36,7 @@ extension PaddingExtensionSymetric on BuildContext {
   EdgeInsets get paddingVertical10 => const EdgeInsets.symmetric(vertical: 10);
   EdgeInsets get paddingVertical20 => const EdgeInsets.symmetric(vertical: 20);
 }
+
+extension HomePageExtensions on BuildContext {
+  EdgeInsets get explorePagePadding => EdgeInsets.only(top: mediaQuery.padding.top, left: normalValue, right: normalValue);
+}
