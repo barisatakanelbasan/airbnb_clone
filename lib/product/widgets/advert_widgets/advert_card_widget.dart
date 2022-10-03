@@ -1,5 +1,7 @@
-import 'package:airbnb_clone/core/constants/app/app_colors.dart';
 import 'package:airbnb_clone/core/extensions/context_extension.dart';
+import 'package:airbnb_clone/product/generation/assets.gen.dart';
+import 'package:airbnb_clone/product/generation/colors.gen.dart';
+import 'package:airbnb_clone/product/widgets/advert_widgets/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class AdvertCardWidget extends StatelessWidget {
@@ -13,52 +15,44 @@ class AdvertCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var images = [
+      'https://picsum.photos/300/200',
+      'https://picsum.photos/300/200',
+      'https://picsum.photos/300/200',
+      'https://picsum.photos/300/200',
+      'https://picsum.photos/300/200',
+      'https://picsum.photos/300/200',
+    ];
     return Container(
       padding: context.paddingMediumVertical,
-      width: context.width - 40,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // IMAGE (square)
           Stack(
             children: [
-              Container(
-                width: context.width - 40,
-                height: context.width - 40,
-                decoration: BoxDecoration(
-                  color: AppColors().lightGrey,
+              DecoratedBox(
+                decoration: const BoxDecoration(
+                  color: ColorName.lightGrey,
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  image: const DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage('https://picsum.photos/300/200'),
+                  child: SizedBox(
+                    width: context.width,
+                    height: context.width * .9,
+                    child: CarouselSlider(images: images),
                   ),
                 ),
               ),
-              // ClipRRect(
-              //   borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //   child: Image.network(
-              //     'https://picsum.photos/1000/2000',
-              //     fit: BoxFit.cover,
-              //     loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
-              //       if (loadingProgress == null) return child;
-
-              //       return Center(
-              //         child: Container(
-              //           width: context.width - 40,
-              //           height: context.width - 40,
-              //           color: AppColors().grey,
-              //         ),
-              //       );
-              //     },
-              //   ),
-              // ),
               Align(
                 alignment: Alignment.topRight,
                 child: Padding(
                   padding: context.paddingLow,
-                  child: Icon(
-                    Icons.favorite,
-                    color: AppColors().red,
+                  child: Assets.svg.icFav.svg(
+                    color: ColorName.white,
+                    width: context.mediumValue,
+                    height: context.mediumValue,
                   ),
                 ),
               )
