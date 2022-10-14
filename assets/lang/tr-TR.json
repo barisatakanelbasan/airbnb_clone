@@ -1,10 +1,16 @@
 {
     "welcome": "Welcome to My App",
     "bottom_bar_buttons": {
-        "explore": "Keşfet",
+        "explore": "Keşfedin",
         "wishlists": "Favoriler",
-        "trips": "Geziler",
+        "trips": "Seyahatler",
         "inbox": "Gelen",
         "profile": "Profil"
+    },
+    "search_bar": {
+        "where_to": "Nereye?",
+        "anywhere": "Herhangi bir yer",
+        "anyweek": "Herhangi bir hafta",
+        "addguests": "Misafir ekleyin"
     }
 }
