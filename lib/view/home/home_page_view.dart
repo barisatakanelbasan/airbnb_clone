@@ -3,6 +3,8 @@ import 'package:airbnb_clone/product/generation/assets.gen.dart';
 import 'package:airbnb_clone/product/generation/colors.gen.dart';
 import 'package:airbnb_clone/product/widgets/advert_widgets/advert_card_widget.dart';
 import 'package:airbnb_clone/product/widgets/common_widgets/shimmer_widget.dart';
+import 'package:airbnb_clone/view/home/explore/list/explore_list_view.dart';
+import 'package:airbnb_clone/view/home/explore/map/explore_map_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,17 +22,7 @@ class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: context.explorePagePadding,
-        child: Column(
-          children: const [
-            ShimmerWidget(
-              enabled: false,
-              child: AdvertCardWidget(),
-            ),
-          ],
-        ),
-      ),
+      body: ExploreMapView(),
       bottomNavigationBar: buildBottomBar(),
     );
   }
@@ -53,36 +45,36 @@ class _HomePageViewState extends State<HomePageView> {
       items: [
         BottomNavigationBarItem(
           icon: Assets.svg.icSearch.svg(
-            height: 29,
-            color: currentIndex == 0 ? ColorName.red : ColorName.grey,
+            height: 25,
+            color: currentIndex == 0 ? ColorName.red : ColorName.darkGrey,
           ),
           label: LocaleKeys.bottom_bar_buttons_explore.tr(),
         ),
         BottomNavigationBarItem(
           icon: Assets.svg.icFav.svg(
-            color: currentIndex == 1 ? ColorName.red : ColorName.grey,
+            color: currentIndex == 1 ? ColorName.red : ColorName.darkGrey,
             height: 25,
           ),
           label: LocaleKeys.bottom_bar_buttons_wishlists.tr(),
         ),
         BottomNavigationBarItem(
           icon: Assets.svg.icAirbnb.svg(
-            color: currentIndex == 2 ? ColorName.red : ColorName.grey,
+            color: currentIndex == 2 ? ColorName.red : ColorName.darkGrey,
             height: 25,
           ),
           label: LocaleKeys.bottom_bar_buttons_trips.tr(),
         ),
         BottomNavigationBarItem(
           icon: Assets.svg.icInbox.svg(
-            color: currentIndex == 3 ? ColorName.red : ColorName.grey,
-            height: 20,
+            color: currentIndex == 3 ? ColorName.red : ColorName.darkGrey,
+            height: 25,
           ),
           label: LocaleKeys.bottom_bar_buttons_inbox.tr(),
         ),
         BottomNavigationBarItem(
           icon: Assets.svg.icProfile.svg(
-            color: currentIndex == 4 ? ColorName.red : ColorName.grey,
-            height: 23,
+            color: currentIndex == 4 ? ColorName.red : ColorName.darkGrey,
+            height: 25,
           ),
           label: LocaleKeys.bottom_bar_buttons_profile.tr(),
         ),

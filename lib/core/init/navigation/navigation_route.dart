@@ -14,8 +14,8 @@ class NavigationRoute {
     switch (settings.name) {
       case NavigationConstants.DEFAULT:
         return normalNavigate(const HomePageView(), NavigationConstants.DEFAULT);
-      case NavigationConstants.EXPLORE_LIST:
-        return normalNavigate(const ExploreListView(), NavigationConstants.EXPLORE_LIST);
+      // case NavigationConstants.EXPLORE_LIST:
+      //   return normalNavigate(const ExploreListView(), NavigationConstants.EXPLORE_LIST);
       case NavigationConstants.EXPLORE_MAP:
         return normalNavigate(const ExploreMapView(), NavigationConstants.EXPLORE_MAP);
       default:

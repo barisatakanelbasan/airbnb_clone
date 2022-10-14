@@ -6,5 +6,11 @@
         "trips": "Trips",
         "inbox": "Inbox",
         "profile": "Profile"
+    },
+    "search_bar": {
+        "where_to": "Where to?",
+        "anywhere": "Anywhere",
+        "anyweek": "Any week",
+        "addguests": "Add guests"
     }
 }

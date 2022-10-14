@@ -7,6 +7,8 @@ extension ContextExtension on BuildContext {
 extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
+  double get paddingTop => mediaQuery.padding.top;
+  double get paddingBottom => mediaQuery.padding.bottom;
 
   double get lowValue => height * 0.01;
   double get normalValue => height * 0.02;
@@ -37,6 +39,10 @@ extension PaddingExtensionSymetric on BuildContext {
   EdgeInsets get paddingVertical20 => const EdgeInsets.symmetric(vertical: 20);
 }
 
+extension PaddingExtensionSafeArea on BuildContext {
+  EdgeInsets get safeOnlyTop => EdgeInsets.only(top: mediaQuery.padding.top);
+}
+
 extension HomePageExtensions on BuildContext {
-  EdgeInsets get explorePagePadding => EdgeInsets.only(top: mediaQuery.padding.top, left: normalValue, right: normalValue);
+  EdgeInsets get explorePagePadding => EdgeInsets.only(left: normalValue, right: normalValue);
 }
