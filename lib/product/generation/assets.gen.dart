@@ -43,8 +43,17 @@ class $AssetsSvgGen {
   /// File path: assets/svg/ic_fav.svg
   SvgGenImage get icFav => const SvgGenImage('assets/svg/ic_fav.svg');
 
+  /// File path: assets/svg/ic_filter.svg
+  SvgGenImage get icFilter => const SvgGenImage('assets/svg/ic_filter.svg');
+
+  /// File path: assets/svg/ic_heart.svg
+  SvgGenImage get icHeart => const SvgGenImage('assets/svg/ic_heart.svg');
+
   /// File path: assets/svg/ic_inbox.svg
   SvgGenImage get icInbox => const SvgGenImage('assets/svg/ic_inbox.svg');
+
+  /// File path: assets/svg/ic_location.svg
+  SvgGenImage get icLocation => const SvgGenImage('assets/svg/ic_location.svg');
 
   /// File path: assets/svg/ic_profile.svg
   SvgGenImage get icProfile => const SvgGenImage('assets/svg/ic_profile.svg');
@@ -53,8 +62,16 @@ class $AssetsSvgGen {
   SvgGenImage get icSearch => const SvgGenImage('assets/svg/ic_search.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [icAirbnb, icFav, icInbox, icProfile, icSearch];
+  List<SvgGenImage> get values => [
+        icAirbnb,
+        icFav,
+        icFilter,
+        icHeart,
+        icInbox,
+        icLocation,
+        icProfile,
+        icSearch
+      ];
 }
 
 class Assets {

@@ -1,6 +1,7 @@
 import 'package:airbnb_clone/core/constants/app/app_constants.dart';
 import 'package:airbnb_clone/core/init/lang/language_manager.dart';
 import 'package:airbnb_clone/core/init/navigation/navigation_service.dart';
+import 'package:airbnb_clone/product/generation/colors.gen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'core/init/navigation/navigation_route.dart';
@@ -38,6 +39,18 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            splashFactory: NoSplash.splashFactory,
+            overlayColor: MaterialStateProperty.resolveWith((states) => states.contains(MaterialState.pressed) ? ColorName.lightGrey.withOpacity(.2) : ColorName.white),
+            // textStyle:
+            //     MaterialStateProperty.resolveWith((states) => states.contains(MaterialState.pressed) ? TextStyle(color: ColorName.lightGrey.withOpacity(.5)) : const TextStyle()),
+            backgroundColor: MaterialStateProperty.all<Color>(
+              ColorName.white,
+            ),
+            shadowColor: MaterialStateProperty.all<Color>(Colors.transparent),
+          ),
+        ),
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,

@@ -11,7 +11,7 @@ class NavigationConstants {
 
   final routes = {
     DEFAULT: (context) => const HomePageView(),
-    EXPLORE_LIST: (context) => const ExploreListView(),
+    // EXPLORE_LIST: (context) => const ExploreListView(),
     EXPLORE_MAP: (context) => const ExploreMapView(),
   };
 }
