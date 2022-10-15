@@ -24,7 +24,6 @@ class AdvertCardWidget extends StatelessWidget {
       'https://picsum.photos/300/200',
     ];
     return Container(
-      padding: context.paddingMediumVertical,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

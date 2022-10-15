@@ -13,5 +13,6 @@ abstract class  LocaleKeys {
   static const search_bar_anyweek = 'search_bar.anyweek';
   static const search_bar_addguests = 'search_bar.addguests';
   static const search_bar = 'search_bar';
+  static const map = 'map';
 
 }

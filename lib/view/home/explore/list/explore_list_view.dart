@@ -1,8 +1,14 @@
 import 'package:airbnb_clone/core/extensions/context_extension.dart';
 import 'package:airbnb_clone/product/constants/product_constants.dart';
+import 'package:airbnb_clone/product/generation/assets.gen.dart';
 import 'package:airbnb_clone/product/widgets/advert_widgets/advert_card_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../../product/generation/colors.gen.dart';
+import 'dart:ui' as ui;
+
+import '../../home_page_view.dart';
 
 class ExploreListView extends StatefulWidget {
   final ScrollController controller;
@@ -13,29 +19,48 @@ class ExploreListView extends StatefulWidget {
 }
 
 class _ExploreListViewState extends State<ExploreListView> {
+  double mapButtonOpacity = 1.0;
+  @override
+  void initState() {
+    draggableScrollController.addListener(changeMapButtonOpacity);
+    super.initState();
+  }
+
+  void changeMapButtonOpacity() {
+    if (mounted) {
+      setState(() {
+        if (draggableScrollController.size < 0.121) {
+          mapButtonOpacity = 0.0;
+        } else {
+          mapButtonOpacity = draggableScrollController.size;
+        }
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    var draggableHeight = context.height - (context.paddingTop + 114 + MediaQueryData.fromWindow(ui.window).padding.bottom);
     return Stack(
       children: [
         Container(
           padding: context.explorePagePadding,
-          decoration: BoxDecoration(
-              color: ColorName.white,
-              borderRadius: const BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
-              boxShadow: ProductConstants().defaultShadow),
+          decoration:
+              BoxDecoration(color: ColorName.white, borderRadius: const BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)), boxShadow: ProductConstants().defaultShadow),
           child: Column(
             children: [
               Expanded(
                 child: MediaQuery.removePadding(
                   context: context,
                   removeTop: true,
-                  child: ListView.builder(
+                  child: ListView.separated(
+                    separatorBuilder: (context, index) => SizedBox(height: context.mediumValue),
                     controller: widget.controller,
                     shrinkWrap: true,
                     itemCount: 10,
                     itemBuilder: (context, index) {
                       return Container(
-                        padding: index == 0 ? EdgeInsets.only(top: context.mediumValue * 2) : EdgeInsets.zero,
+                        padding: index == 0 ? EdgeInsets.only(top: context.width * .24) : EdgeInsets.zero,
                         child: AdvertCardWidget(),
                       );
                     },
@@ -46,10 +71,52 @@ class _ExploreListViewState extends State<ExploreListView> {
           ),
         ),
         Align(
+          alignment: Alignment.bottomCenter,
+          child: InkWell(
+            onTap: () {
+              draggableScrollController.animateTo(.12, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+            },
+            child: Container(
+              margin: EdgeInsets.only(bottom: context.mediumValue),
+              width: 90,
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(50)),
+                color: ColorName.black.withOpacity(mapButtonOpacity),
+              ),
+              child: Container(
+                padding: context.mapButtonPadding,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(LocaleKeys.map.tr(), style: TextStyle(color: ColorName.white.withOpacity(mapButtonOpacity))),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Assets.svg.icMap.svg(height: 16, color: ColorName.white.withOpacity(mapButtonOpacity)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Align(
           alignment: Alignment.topCenter,
           child: Container(
-            padding: EdgeInsets.only(top: context.mediumValue * 1.1),
-            child: Text('data'),
+            margin: const EdgeInsets.only(top: 10),
+            width: 40,
+            height: 4,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+              color: ColorName.lightGrey,
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            padding: EdgeInsets.only(top: draggableHeight * .05),
+            child: const Text('data'),
           ),
         )
       ],

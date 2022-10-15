@@ -55,6 +55,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/ic_location.svg
   SvgGenImage get icLocation => const SvgGenImage('assets/svg/ic_location.svg');
 
+  /// File path: assets/svg/ic_map.svg
+  SvgGenImage get icMap => const SvgGenImage('assets/svg/ic_map.svg');
+
   /// File path: assets/svg/ic_profile.svg
   SvgGenImage get icProfile => const SvgGenImage('assets/svg/ic_profile.svg');
 
@@ -69,6 +72,7 @@ class $AssetsSvgGen {
         icHeart,
         icInbox,
         icLocation,
+        icMap,
         icProfile,
         icSearch
       ];

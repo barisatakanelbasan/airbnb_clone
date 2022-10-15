@@ -5,6 +5,7 @@ import 'package:airbnb_clone/product/generation/colors.gen.dart';
 import 'package:airbnb_clone/product/widgets/common_widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
+import '../../home_page_view.dart';
 import '../list/explore_list_view.dart';
 
 class ExploreMapView extends StatefulWidget {
@@ -17,6 +18,7 @@ class ExploreMapView extends StatefulWidget {
 class _ExploreMapViewState extends State<ExploreMapView> {
   @override
   Widget build(BuildContext context) {
+    var draggableHeight = context.height - (context.paddingTop + 114 + MediaQueryData.fromWindow(ui.window).padding.bottom);
     return Scaffold(
       body: Stack(
         children: [
@@ -26,19 +28,23 @@ class _ExploreMapViewState extends State<ExploreMapView> {
                 alignment: Alignment.bottomCenter,
                 child: Stack(
                   children: [
+                    // MAP
                     Container(
-                      margin: EdgeInsets.only(top: (context.paddingTop + (context.highValue * 1.5)) - context.mediumValue * 2),
-                      padding: EdgeInsets.only(top: context.mediumValue * 2),
+                      color: ColorName.red,
+                      margin: EdgeInsets.only(top: (context.paddingTop + (58))),
+                      padding: EdgeInsets.only(top: 70, bottom: draggableHeight * .06),
                       width: double.infinity,
-                      child: Center(child: Text('Map')),
+                      child: Container(color: ColorName.green, child: Center(child: Text('Map'))),
                     ),
+
+                    // CURRENT LOCATION BUTTON
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
-                        padding: context.paddingLow,
+                        padding: const EdgeInsets.all(11),
                         margin: EdgeInsets.only(right: context.normalValue, bottom: context.highValue * 1.1),
-                        height: context.normalValue * 2,
-                        width: context.normalValue * 2,
+                        height: 40,
+                        width: 40,
                         decoration: BoxDecoration(color: ColorName.white, borderRadius: BorderRadius.circular(8), boxShadow: ProductConstants().defaultShadow),
                         child: Assets.svg.icLocation.svg(),
                       ),
@@ -46,13 +52,16 @@ class _ExploreMapViewState extends State<ExploreMapView> {
                   ],
                 ),
               ),
+
+              // DRAGGABLE EXPLORE LIST
               Align(
                 alignment: Alignment.bottomCenter,
                 child: SizedBox(
-                  height: context.height - (context.paddingTop + (context.highValue * 1.5) + MediaQueryData.fromWindow(ui.window).padding.bottom),
+                  height: draggableHeight,
                   child: DraggableScrollableSheet(
+                    controller: draggableScrollController,
                     snap: true,
-                    initialChildSize: .12,
+                    initialChildSize: 1,
                     minChildSize: .12,
                     maxChildSize: 1,
                     builder: (context, scrollController) {
@@ -64,11 +73,11 @@ class _ExploreMapViewState extends State<ExploreMapView> {
             ],
           ),
 
-          // Appbar
+          // APPBAR
           Container(
             padding: EdgeInsets.fromLTRB(context.mediumValue, context.paddingTop, context.mediumValue, context.mediumValue),
             width: double.infinity,
-            height: context.paddingTop + context.highValue * 1.5,
+            height: context.paddingTop + 128,
             decoration: BoxDecoration(
               color: Theme.of(context).scaffoldBackgroundColor,
               boxShadow: [

@@ -1,14 +1,13 @@
+import 'package:airbnb_clone/view/home/home_page_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'dart:ui' as ui;
 
 class ScrollToHideWidget extends StatefulWidget {
   final Widget child;
-  final ScrollController controller;
   final Duration duration;
   const ScrollToHideWidget({
     Key? key,
     required this.child,
-    required this.controller,
     this.duration = const Duration(milliseconds: 200),
   }) : super(key: key);
 
@@ -18,43 +17,34 @@ class ScrollToHideWidget extends StatefulWidget {
 
 class _ScrollToHideWidgetState extends State<ScrollToHideWidget> {
   bool isVisible = true;
+  var bottomBarHeight = kBottomNavigationBarHeight + MediaQueryData.fromWindow(ui.window).padding.bottom;
 
   @override
   void initState() {
     super.initState();
-
-    widget.controller.addListener(listen);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    widget.controller.removeListener(listen);
+    draggableScrollController.addListener(listen);
   }
 
   void listen() {
-    final direction = widget.controller.position.userScrollDirection;
-    if (direction == ScrollDirection.reverse) {
-      show();
-    } else if (direction == ScrollDirection.forward) {
-      hide();
-    }
-  }
-
-  void show() {
-    if (!isVisible) setState(() => isVisible = true);
-  }
-
-  void hide() {
-    if (isVisible) setState(() => isVisible = false);
+    final size = draggableScrollController.size;
+    debugPrint(size.toString());
+    setState(() {
+      if (size < 0.121) {
+        bottomBarHeight = 0;
+      } else {
+        bottomBarHeight = size * (kBottomNavigationBarHeight + MediaQueryData.fromWindow(ui.window).padding.bottom);
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: widget.duration,
-      height: isVisible ? kBottomNavigationBarHeight : 0,
-      child: widget.child,
+      height: bottomBarHeight,
+      child: Wrap(
+        children: [widget.child],
+      ),
     );
   }
 }
