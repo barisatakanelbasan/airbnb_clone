@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:airbnb_clone/core/extensions/context_extension.dart';
 import 'package:airbnb_clone/product/constants/product_constants.dart';
 import 'package:airbnb_clone/product/widgets/common_widgets/shimmer_widget.dart';
@@ -22,11 +21,12 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 8),
       padding: EdgeInsets.symmetric(vertical: context.lowValue),
       width: double.infinity,
-      height: context.height * .06,
+      height: context.width * .13,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(context.mediumValue)),
+        borderRadius: const BorderRadius.all(Radius.circular(100)),
         color: ColorName.white,
         boxShadow: ProductConstants().defaultShadow,
       ),
@@ -43,7 +43,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
             ),
             onPressed: widget.onTap,
             child: Assets.svg.icSearch.svg(
-              height: context.normalValue,
+              height: 18,
               color: ColorName.black,
             ),
           ),
@@ -56,7 +56,10 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(LocaleKeys.search_bar_where_to.tr()),
-                Text('${LocaleKeys.search_bar_anywhere.tr()} • ${LocaleKeys.search_bar_anyweek.tr()} • ${LocaleKeys.search_bar_addguests.tr()}'),
+                Text(
+                  '${LocaleKeys.search_bar_anywhere.tr()} • ${LocaleKeys.search_bar_anyweek.tr()} • ${LocaleKeys.search_bar_addguests.tr()}',
+                  style: TextStyle(fontSize: 12),
+                ),
               ],
             ),
           ),
@@ -79,7 +82,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
               ),
               onPressed: widget.onTap,
               child: Assets.svg.icFilter.svg(
-                height: context.normalValue,
+                height: 18,
                 color: ColorName.black,
               ),
             ),
