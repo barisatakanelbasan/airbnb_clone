@@ -49,77 +49,97 @@ class _ExploreListViewState extends State<ExploreListView> {
               BoxDecoration(color: ColorName.white, borderRadius: const BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)), boxShadow: ProductConstants().defaultShadow),
           child: Column(
             children: [
-              Expanded(
-                child: MediaQuery.removePadding(
-                  context: context,
-                  removeTop: true,
-                  child: ListView.separated(
-                    separatorBuilder: (context, index) => SizedBox(height: context.mediumValue),
-                    controller: widget.controller,
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        padding: index == 0 ? EdgeInsets.only(top: context.width * .24) : EdgeInsets.zero,
-                        child: AdvertCardWidget(),
-                      );
-                    },
-                  ),
-                ),
-              ),
+              _advertList(context),
             ],
           ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: InkWell(
-            onTap: () {
-              draggableScrollController.animateTo(.12, duration: const Duration(milliseconds: 300), curve: Curves.linear);
-            },
-            child: Container(
-              margin: EdgeInsets.only(bottom: context.mediumValue),
-              width: 90,
-              height: 40,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(50)),
-                color: ColorName.black.withOpacity(mapButtonOpacity),
-              ),
-              child: Container(
-                padding: context.mapButtonPadding,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(LocaleKeys.map.tr(), style: TextStyle(color: ColorName.white.withOpacity(mapButtonOpacity))),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Assets.svg.icMap.svg(height: 16, color: ColorName.white.withOpacity(mapButtonOpacity)),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            margin: const EdgeInsets.only(top: 10),
-            width: 40,
-            height: 4,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-              color: ColorName.lightGrey,
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            padding: EdgeInsets.only(top: draggableHeight * .05),
-            child: const Text('data'),
-          ),
-        )
+        _mapButton(context),
+
+        // APPLE SHEET LINE
+        _sheetLine(),
+
+        // ADVERT DATA
+        _advertDataText(draggableHeight)
       ],
+    );
+  }
+
+  Expanded _advertList(BuildContext context) {
+    return Expanded(
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
+        child: ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(height: context.mediumValue),
+          controller: widget.controller,
+          shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Container(
+              padding: index == 0 ? EdgeInsets.only(top: context.width * .24) : EdgeInsets.zero,
+              child: AdvertCardWidget(),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Align _mapButton(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: InkWell(
+        onTap: () {
+          draggableScrollController.animateTo(.12, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+        },
+        child: Container(
+          margin: EdgeInsets.only(bottom: context.mediumValue),
+          width: 90,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(50)),
+            color: ColorName.black.withOpacity(mapButtonOpacity),
+          ),
+          child: Container(
+            padding: context.mapButtonPadding,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(LocaleKeys.map.tr(), style: TextStyle(color: ColorName.white.withOpacity(mapButtonOpacity))),
+                const SizedBox(
+                  width: 5,
+                ),
+                Assets.svg.icMap.svg(height: 16, color: ColorName.white.withOpacity(mapButtonOpacity)),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Align _advertDataText(double draggableHeight) {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Container(
+        padding: EdgeInsets.only(top: draggableHeight * .05),
+        child: const Text('data'),
+      ),
+    );
+  }
+
+  Align _sheetLine() {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Container(
+        margin: const EdgeInsets.only(top: 10),
+        width: 40,
+        height: 4,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(50)),
+          color: ColorName.lightGrey,
+        ),
+      ),
     );
   }
 }
