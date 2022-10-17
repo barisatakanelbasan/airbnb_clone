@@ -25,9 +25,14 @@ class _ScrollToHideWidgetState extends State<ScrollToHideWidget> {
     draggableScrollController.addListener(listen);
   }
 
+  @override
+  void dispose() {
+    draggableScrollController.removeListener(listen);
+    super.dispose();
+  }
+
   void listen() {
     final size = draggableScrollController.size;
-    debugPrint(size.toString());
     setState(() {
       if (size < 0.121) {
         bottomBarHeight = 0;
