@@ -38,6 +38,10 @@ dependencies:
   # Language Support
   easy_localization: ^3.0.1
 
+  # Firebase
+  firebase_core: ^1.24.0
+  cloud_firestore: ^3.5.1
+
   # Svg 
   flutter_svg: ^1.1.5
 
@@ -49,6 +53,7 @@ dependencies:
 
   # Shimmer Efekti
   shimmer: ^2.0.0
+  
 
 
 

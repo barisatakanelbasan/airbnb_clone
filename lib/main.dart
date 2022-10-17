@@ -3,8 +3,10 @@ import 'package:airbnb_clone/core/init/lang/language_manager.dart';
 import 'package:airbnb_clone/core/init/navigation/navigation_service.dart';
 import 'package:airbnb_clone/product/generation/colors.gen.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'core/init/navigation/navigation_route.dart';
+import 'firebase_options.dart';
 
 void main() async {
   await _init();
@@ -21,7 +23,9 @@ void main() async {
 Future<void> _init() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
