@@ -94,7 +94,7 @@ class _ExploreMapViewState extends State<ExploreMapView> {
         margin: EdgeInsets.only(right: context.normalValue, bottom: context.highValue * 1.1),
         height: 40,
         width: 40,
-        decoration: BoxDecoration(color: ColorName.white, borderRadius: BorderRadius.circular(8), boxShadow: ProductConstants().defaultShadow),
+        decoration: BoxDecoration(color: ColorName.white, borderRadius: BorderRadius.circular(8), boxShadow: ProductConstants.instance.defaultShadow),
         child: Assets.svg.icLocation.svg(),
       ),
     );
