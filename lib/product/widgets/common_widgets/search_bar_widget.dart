@@ -27,7 +27,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(100)),
         color: ColorName.white,
-        boxShadow: ProductConstants().defaultShadow,
+        boxShadow: ProductConstants.instance.defaultShadow,
       ),
       child: Row(
         children: [

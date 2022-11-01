@@ -45,8 +45,8 @@ class _ExploreListViewState extends State<ExploreListView> {
       children: [
         Container(
           padding: context.explorePagePadding,
-          decoration:
-              BoxDecoration(color: ColorName.white, borderRadius: const BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)), boxShadow: ProductConstants().defaultShadow),
+          decoration: BoxDecoration(
+              color: ColorName.white, borderRadius: const BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)), boxShadow: ProductConstants.instance.defaultShadow),
           child: Column(
             children: [
               _advertList(context),
