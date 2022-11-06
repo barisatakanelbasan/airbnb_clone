@@ -6,7 +6,7 @@ import 'package:airbnb_clone/product/widgets/common_widgets/search_bar_widget.da
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 import '../../home_page_view.dart';
-import '../list/explore_list_view.dart';
+import 'explore_list_view.dart';
 
 class ExploreMapView extends StatefulWidget {
   const ExploreMapView({Key? key}) : super(key: key);

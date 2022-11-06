@@ -1,7 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:airbnb_clone/view/home/explore/list/explore_list_view.dart';
-import 'package:airbnb_clone/view/home/explore/map/explore_map_view.dart';
+import 'package:airbnb_clone/view/home/explore/view/explore_list_view.dart';
+import 'package:airbnb_clone/view/home/explore/view/explore_map_view.dart';
 import 'package:airbnb_clone/view/home/home_page_view.dart';
 
 class NavigationConstants {

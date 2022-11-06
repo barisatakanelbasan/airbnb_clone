@@ -47,11 +47,7 @@ class MyApp extends StatelessWidget {
           style: ButtonStyle(
             splashFactory: NoSplash.splashFactory,
             overlayColor: MaterialStateProperty.resolveWith((states) => states.contains(MaterialState.pressed) ? ColorName.lightGrey.withOpacity(.2) : ColorName.white),
-            // textStyle:
-            //     MaterialStateProperty.resolveWith((states) => states.contains(MaterialState.pressed) ? TextStyle(color: ColorName.lightGrey.withOpacity(.5)) : const TextStyle()),
-            backgroundColor: MaterialStateProperty.all<Color>(
-              ColorName.white,
-            ),
+            backgroundColor: MaterialStateProperty.all<Color>(ColorName.white),
             shadowColor: MaterialStateProperty.all<Color>(Colors.transparent),
           ),
         ),

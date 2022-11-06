@@ -1,7 +1,7 @@
 import 'package:airbnb_clone/product/generation/assets.gen.dart';
 import 'package:airbnb_clone/product/generation/colors.gen.dart';
 import 'package:airbnb_clone/product/widgets/animated_widgets/scroll_to_hide_widget.dart';
-import 'package:airbnb_clone/view/home/explore/map/explore_map_view.dart';
+import 'package:airbnb_clone/view/home/explore/view/explore_map_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../../core/init/lang/locale_keys.g.dart';

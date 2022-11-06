@@ -2,27 +2,21 @@ import 'package:airbnb_clone/core/extensions/context_extension.dart';
 import 'package:airbnb_clone/product/generation/assets.gen.dart';
 import 'package:airbnb_clone/product/generation/colors.gen.dart';
 import 'package:airbnb_clone/product/widgets/advert_widgets/carousel_slider.dart';
+import 'package:airbnb_clone/view/home/explore/model/advert.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/init/lang/locale_keys.g.dart';
+
 class AdvertCardWidget extends StatelessWidget {
-  final List<String>? images;
-  final String? location;
-  final double? rate;
-  final int? distance;
-  final List<DateTime>? dates;
-  final double? price;
-  const AdvertCardWidget({Key? key, this.location, this.rate, this.distance, this.dates, this.price, this.images}) : super(key: key);
+  final Advert advert;
+
+  const AdvertCardWidget({Key? key, required this.advert}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var images = [
-      'https://picsum.photos/300/200',
-      'https://picsum.photos/300/200',
-      'https://picsum.photos/300/200',
-      'https://picsum.photos/300/200',
-      'https://picsum.photos/300/200',
-      'https://picsum.photos/300/200',
-    ];
+    var images = advert.advertPhotos;
+
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,25 +58,32 @@ class AdvertCardWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('data'),
-                Text('data'),
+                Text('${advert.province}, ${advert.country}'),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.star,
+                      size: 15,
+                    ),
+                    Text(advert.rating.rate.toString()),
+                  ],
+                )
               ],
             ),
           ),
 
-          // DISTANCE FROM CURRENT LOCATION
           Padding(
             padding: context.paddingLowVertical,
-            child: Text('data'),
+            child: Text(LocaleKeys.advert_list_card_hosted_by.tr(args: ['Barış'])),
           ),
 
           // DATE
-          Text('data'),
+          Text('${advert.availableDate.toDate().month} - ${advert.availableDate.toDate().day}'),
 
           // PRICE / NIGHT
           Padding(
             padding: EdgeInsets.only(top: context.normalValue),
-            child: Text('data'),
+            child: Text(LocaleKeys.advert_list_card_price_per_night.tr(args: [advert.pricePerNight.toStringAsFixed(2)])),
           ),
         ],
       ),
