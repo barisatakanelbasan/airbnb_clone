@@ -13,5 +13,9 @@
         "anyweek": "Any week",
         "addguests": "Add guests"
     },
-    "map": "Map"
+    "map": "Map",
+    "advert_list_card": {
+        "hosted_by": "Hosted by {}",
+        "price_per_night": "{} ₺ night"
+    }
 }

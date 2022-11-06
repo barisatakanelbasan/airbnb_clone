@@ -14,5 +14,8 @@ abstract class  LocaleKeys {
   static const search_bar_addguests = 'search_bar.addguests';
   static const search_bar = 'search_bar';
   static const map = 'map';
+  static const advert_list_card_hosted_by = 'advert_list_card.hosted_by';
+  static const advert_list_card_price_per_night = 'advert_list_card.price_per_night';
+  static const advert_list_card = 'advert_list_card';
 
 }

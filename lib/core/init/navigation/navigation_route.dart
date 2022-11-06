@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../view/home/explore/list/explore_list_view.dart';
-import '../../../view/home/explore/map/explore_map_view.dart';
+import '../../../view/home/explore/view/explore_list_view.dart';
+import '../../../view/home/explore/view/explore_map_view.dart';
 import '../../../view/home/home_page_view.dart';
 import '../../constants/navigation/navigation_constants.dart';
 

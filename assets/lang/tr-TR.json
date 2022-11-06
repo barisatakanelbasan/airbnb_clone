@@ -13,5 +13,9 @@
         "anyweek": "Herhangi bir hafta",
         "addguests": "Misafir ekleyin"
     },
-    "map": "Harita"
+    "map": "Harita",
+    "advert_list_card": {
+        "hosted_by": "Ev sahibi %s",
+        "price_per_night": "%s ₺ gece"
+    }
 }
