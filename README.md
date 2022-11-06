@@ -5,7 +5,7 @@
 
 ### As i mentioned above this project is in development so i am looking forward to update this readme file as i add more new features 🔮
 
-- Listing adverts (soon)
+- Listing adverts
 - Listing adverts on map (soon)
 
 ## 📚 Libraries
@@ -23,6 +23,8 @@
 - <a href="https://pub.dev/packages/change_app_package_name">Change App Package Name</a>
 
 ## 📸 Screenshots
-Screenshots and gifs will be uploaded soon 🤫
+<img src="https://i.hizliresim.com/1uo2ngf.png" height="600"/>
+
+More screenshots and gifs will be uploaded soon 🤫
 
 
