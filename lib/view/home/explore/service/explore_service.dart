@@ -1,9 +1,6 @@
 import 'dart:io';
-
 import 'package:airbnb_clone/product/models/failure.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import '../model/advert.dart';
 
 class ExploreService {

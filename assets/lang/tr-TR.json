@@ -17,5 +17,15 @@
     "advert_list_card": {
         "hosted_by": "Ev sahibi %s",
         "price_per_night": "%s ₺ gece"
+    },
+    "no_exact_matches": "Tam eşleşme yok",
+    "x_adverts_found": "{} ilan bulundu",
+    "filter_variables": {
+        "omg": "Olağanüstü",
+        "design": "Tasarım",
+        "arctic": "Kuzey Kutbu",
+        "tropical": "Tropikal",
+        "windmills": "Yel değirmenleri",
+        "surfing": "Sörf"
     }
 }

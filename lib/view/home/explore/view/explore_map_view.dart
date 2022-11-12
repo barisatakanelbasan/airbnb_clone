@@ -2,6 +2,7 @@ import 'package:airbnb_clone/core/extensions/context_extension.dart';
 import 'package:airbnb_clone/product/constants/product_constants.dart';
 import 'package:airbnb_clone/product/generation/assets.gen.dart';
 import 'package:airbnb_clone/product/generation/colors.gen.dart';
+import 'package:airbnb_clone/product/widgets/common_widgets/filter_bar_widget.dart';
 import 'package:airbnb_clone/product/widgets/common_widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
@@ -51,7 +52,7 @@ class _ExploreMapViewState extends State<ExploreMapView> {
 
   Container _appBar(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(context.mediumValue, context.paddingTop, context.mediumValue, context.mediumValue),
+      padding: EdgeInsets.only(top: context.paddingTop),
       width: double.infinity,
       height: context.paddingTop + 128,
       decoration: BoxDecoration(
@@ -67,10 +68,15 @@ class _ExploreMapViewState extends State<ExploreMapView> {
       child: Column(
         children: [
           // Search Bar
-          SearchBarWidget(onTap: () {}),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: context.mediumValue),
+            child: SearchBarWidget(onTap: () {}),
+          ),
 
           // Filter Bar
-          //TODO filter bar
+          const Expanded(
+            child: FilterBarWidget(),
+          ),
         ],
       ),
     );

@@ -131,7 +131,7 @@ class _ExploreListViewState extends State<ExploreListView> {
       alignment: Alignment.topCenter,
       child: Container(
         padding: EdgeInsets.only(top: draggableHeight * .05),
-        child: const Text('data'),
+        child: Text(_viewModel.adverts!.isEmpty ? LocaleKeys.no_exact_matches.tr() : LocaleKeys.x_adverts_found.tr(args: [_viewModel.adverts!.length.toString()])),
       ),
     );
   }
