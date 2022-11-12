@@ -44,6 +44,6 @@ extension PaddingExtensionSafeArea on BuildContext {
 }
 
 extension HomePageExtensions on BuildContext {
-  EdgeInsets get explorePagePadding => EdgeInsets.only(left: normalValue, right: normalValue);
+  EdgeInsets get explorePagePadding => EdgeInsets.only(left: normalValue, right: normalValue, bottom: normalValue);
   EdgeInsets get mapButtonPadding => const EdgeInsets.symmetric(horizontal: 20, vertical: 5);
 }

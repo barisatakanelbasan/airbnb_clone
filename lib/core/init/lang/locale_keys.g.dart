@@ -17,5 +17,14 @@ abstract class  LocaleKeys {
   static const advert_list_card_hosted_by = 'advert_list_card.hosted_by';
   static const advert_list_card_price_per_night = 'advert_list_card.price_per_night';
   static const advert_list_card = 'advert_list_card';
+  static const no_exact_matches = 'no_exact_matches';
+  static const x_adverts_found = 'x_adverts_found';
+  static const filter_variables_omg = 'filter_variables.omg';
+  static const filter_variables_design = 'filter_variables.design';
+  static const filter_variables_arctic = 'filter_variables.arctic';
+  static const filter_variables_tropical = 'filter_variables.tropical';
+  static const filter_variables_windmills = 'filter_variables.windmills';
+  static const filter_variables_surfing = 'filter_variables.surfing';
+  static const filter_variables = 'filter_variables';
 
 }

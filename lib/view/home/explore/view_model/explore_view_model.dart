@@ -3,7 +3,6 @@
 import 'package:airbnb_clone/view/home/explore/model/advert.dart';
 import 'package:airbnb_clone/view/home/explore/service/explore_service.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../product/models/failure.dart';
 
 enum AppState { IDLE, LOADING, ERROR }
@@ -42,5 +41,13 @@ class ExploreViewModel with ChangeNotifier {
       changeState = AppState.ERROR;
       adverts = [];
     }
+  }
+
+  // Filter
+  int? _selectedFilterIndex;
+  get selectedFilterIndex => _selectedFilterIndex;
+  set setSelectedFilterIndex(int? index) {
+    _selectedFilterIndex = index;
+    notifyListeners();
   }
 }

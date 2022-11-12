@@ -21,6 +21,37 @@ class $AssetsColorGen {
   List<String> get values => [colors];
 }
 
+class $AssetsIconGen {
+  const $AssetsIconGen();
+
+  /// File path: assets/icon/ic_arctic.jpg
+  AssetGenImage get icArctic =>
+      const AssetGenImage('assets/icon/ic_arctic.jpg');
+
+  /// File path: assets/icon/ic_design.jpg
+  AssetGenImage get icDesign =>
+      const AssetGenImage('assets/icon/ic_design.jpg');
+
+  /// File path: assets/icon/ic_omg.jpg
+  AssetGenImage get icOmg => const AssetGenImage('assets/icon/ic_omg.jpg');
+
+  /// File path: assets/icon/ic_surfing.jpg
+  AssetGenImage get icSurfing =>
+      const AssetGenImage('assets/icon/ic_surfing.jpg');
+
+  /// File path: assets/icon/ic_tropical.jpg
+  AssetGenImage get icTropical =>
+      const AssetGenImage('assets/icon/ic_tropical.jpg');
+
+  /// File path: assets/icon/ic_windmills.jpg
+  AssetGenImage get icWindmills =>
+      const AssetGenImage('assets/icon/ic_windmills.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [icArctic, icDesign, icOmg, icSurfing, icTropical, icWindmills];
+}
+
 class $AssetsLangGen {
   const $AssetsLangGen();
 
@@ -82,6 +113,7 @@ class Assets {
   Assets._();
 
   static const $AssetsColorGen color = $AssetsColorGen();
+  static const $AssetsIconGen icon = $AssetsIconGen();
   static const $AssetsLangGen lang = $AssetsLangGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();
 }

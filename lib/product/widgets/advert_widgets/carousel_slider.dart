@@ -12,7 +12,7 @@ class CarouselSlider extends StatefulWidget {
 
 class _CarouselSliderState extends State<CarouselSlider> {
   late PageController _pageController;
-  int activePage = 1;
+  int activePage = 0;
   @override
   void initState() {
     super.initState();
