@@ -20,6 +20,8 @@ class ExploreService {
       throw Failure(' HttpException :(');
     } on FormatException {
       throw Failure('Format Exception :(');
+    } catch (e) {
+      throw Failure('Unexpected error :(');
     }
   }
 }

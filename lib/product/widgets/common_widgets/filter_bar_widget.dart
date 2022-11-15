@@ -34,10 +34,13 @@ class _FilterBarWidgetState extends State<FilterBarWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     const Spacer(),
-                    Image.asset(
-                      ProductConstants.instance.filterIcons[index],
-                      height: 20,
-                      width: 20,
+                    Padding(
+                      padding: EdgeInsets.only(top: context.lowValue),
+                      child: Image.asset(
+                        ProductConstants.instance.filterIcons[index],
+                        height: 20,
+                        width: 20,
+                      ),
                     ),
                     Text(ProductConstants.instance.filterNames[index].tr()),
                     const Spacer(),

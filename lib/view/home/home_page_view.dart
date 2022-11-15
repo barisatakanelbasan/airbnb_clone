@@ -4,6 +4,7 @@ import 'package:airbnb_clone/product/widgets/animated_widgets/scroll_to_hide_wid
 import 'package:airbnb_clone/view/home/explore/view/explore_map_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
 class HomePageView extends StatefulWidget {
@@ -17,6 +18,13 @@ DraggableScrollableController draggableScrollController = DraggableScrollableCon
 
 class _HomePageViewState extends State<HomePageView> {
   int currentIndex = 0;
+
+  @override
+  void initState() {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarBrightness: Brightness.light));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

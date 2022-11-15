@@ -3,9 +3,8 @@
 import 'package:airbnb_clone/view/home/explore/model/advert.dart';
 import 'package:airbnb_clone/view/home/explore/service/explore_service.dart';
 import 'package:flutter/material.dart';
+import '../../../../product/constants/enums.dart';
 import '../../../../product/models/failure.dart';
-
-enum AppState { IDLE, LOADING, ERROR }
 
 class ExploreViewModel with ChangeNotifier {
   ExploreViewModel() {

@@ -7,6 +7,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
+import '../../../../product/constants/enums.dart';
 import '../../../../product/generation/colors.gen.dart';
 import 'dart:ui' as ui;
 import '../../home_page_view.dart';
