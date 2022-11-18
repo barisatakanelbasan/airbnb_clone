@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Advert {
-  final String id;
+  String id;
   final String country;
   final String city;
   final String province;
@@ -11,18 +11,21 @@ class Advert {
   final Timestamp availableDate;
   final GeoPoint location;
   final Rating rating;
+  final int filterTypeId;
 
-  Advert(
-      {required this.id,
-      required this.country,
-      required this.city,
-      required this.province,
-      required this.district,
-      required this.advertPhotos,
-      required this.pricePerNight,
-      required this.availableDate,
-      required this.location,
-      required this.rating});
+  Advert({
+    required this.id,
+    required this.country,
+    required this.city,
+    required this.province,
+    required this.district,
+    required this.advertPhotos,
+    required this.pricePerNight,
+    required this.availableDate,
+    required this.location,
+    required this.rating,
+    required this.filterTypeId,
+  });
 
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -35,6 +38,7 @@ class Advert {
         'available_date': availableDate,
         'location': location,
         'rating': rating.toJson(),
+        'filter_type_id': filterTypeId,
       };
 
   static Advert fromJson(Map<String, dynamic> json) => Advert(
@@ -48,6 +52,7 @@ class Advert {
         availableDate: json['available_date'],
         location: json['location'],
         rating: Rating.fromJson(json['rating']),
+        filterTypeId: json['filter_type_id'],
       );
 }
 
