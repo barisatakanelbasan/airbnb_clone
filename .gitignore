@@ -151,6 +151,8 @@ analysis_benchmark.json
 .history
 .svn/
 *lib/core/vitals/
+ios/Runner/APIKey.plist
+android/app/src/main/res/values/keys.xml
 
 # Node.js
 logs
