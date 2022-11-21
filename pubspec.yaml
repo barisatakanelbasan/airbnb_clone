@@ -46,7 +46,7 @@ dependencies:
   flutter_svg: ^1.1.5
 
   # Google Maps
-  google_maps_flutter: ^2.2.0
+  google_maps_flutter: ^2.2.1
 
   # State Management
   provider: ^6.0.3

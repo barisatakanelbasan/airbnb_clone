@@ -100,6 +100,7 @@ class _ExploreListViewState extends State<ExploreListView> {
       child: InkWell(
         onTap: () {
           draggableScrollController.animateTo(.12, duration: const Duration(milliseconds: 300), curve: Curves.linear);
+          widget.controller.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
         },
         child: Container(
           margin: EdgeInsets.only(bottom: context.mediumValue),
