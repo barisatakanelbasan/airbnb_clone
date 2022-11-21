@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:airbnb_clone/core/extensions/context_extension.dart';
 import 'package:airbnb_clone/product/constants/product_constants.dart';
 import 'package:airbnb_clone/product/generation/assets.gen.dart';
@@ -5,6 +7,7 @@ import 'package:airbnb_clone/product/generation/colors.gen.dart';
 import 'package:airbnb_clone/product/widgets/common_widgets/filter_bar_widget.dart';
 import 'package:airbnb_clone/product/widgets/common_widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:ui' as ui;
 import '../../home_page_view.dart';
 import 'explore_list_view.dart';
@@ -17,6 +20,13 @@ class ExploreMapView extends StatefulWidget {
 }
 
 class _ExploreMapViewState extends State<ExploreMapView> {
+  Completer<GoogleMapController> _controller = Completer();
+
+  static final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
+
   @override
   Widget build(BuildContext context) {
     var draggableHeight = context.height - (context.paddingTop + 114 + MediaQueryData.fromWindow(ui.window).padding.bottom);
@@ -88,20 +98,57 @@ class _ExploreMapViewState extends State<ExploreMapView> {
       margin: EdgeInsets.only(top: (context.paddingTop + (58))),
       padding: EdgeInsets.only(top: 70, bottom: draggableHeight * .06),
       width: double.infinity,
-      child: Container(color: ColorName.green, child: Center(child: Text('Map'))),
+      child: GoogleMap(
+        padding: EdgeInsets.only(bottom: draggableHeight * .07, left: 10),
+        myLocationButtonEnabled: false,
+        initialCameraPosition: _kGooglePlex,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },
+      ),
     );
   }
 
   Align _currentLocationButton(BuildContext context) {
     return Align(
-      alignment: Alignment.bottomRight,
+      alignment: Alignment.topRight,
       child: Container(
-        padding: const EdgeInsets.all(11),
-        margin: EdgeInsets.only(right: context.normalValue, bottom: context.highValue * 1.1),
-        height: 40,
-        width: 40,
-        decoration: BoxDecoration(color: ColorName.white, borderRadius: BorderRadius.circular(8), boxShadow: ProductConstants.instance.defaultShadow),
-        child: Assets.svg.icLocation.svg(),
+        height: 81,
+        decoration: BoxDecoration(
+          boxShadow: ProductConstants.instance.defaultShadow,
+        ),
+        margin: EdgeInsets.only(right: context.normalValue * 1.2, top: context.highValue * 2.15),
+        child: Column(
+          children: [
+            InkWell(
+              child: Container(
+                padding: const EdgeInsets.all(11),
+                height: 40,
+                width: 40,
+                decoration: const BoxDecoration(
+                  color: ColorName.white,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+                ),
+                child: Assets.svg.icLocation.svg(),
+              ),
+            ),
+            Container(
+              width: 40,
+              height: 1,
+              color: ColorName.lightGrey,
+            ),
+            Container(
+              padding: const EdgeInsets.all(9),
+              height: 40,
+              width: 40,
+              decoration: const BoxDecoration(
+                color: ColorName.white,
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8), bottomRight: Radius.circular(8)),
+              ),
+              child: Assets.svg.icSettings.svg(color: ColorName.black),
+            ),
+          ],
+        ),
       ),
     );
   }

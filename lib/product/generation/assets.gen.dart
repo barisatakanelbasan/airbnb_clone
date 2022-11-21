@@ -95,6 +95,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/ic_search.svg
   SvgGenImage get icSearch => const SvgGenImage('assets/svg/ic_search.svg');
 
+  /// File path: assets/svg/ic_settings.svg
+  SvgGenImage get icSettings => const SvgGenImage('assets/svg/ic_settings.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
         icAirbnb,
@@ -105,7 +108,8 @@ class $AssetsSvgGen {
         icLocation,
         icMap,
         icProfile,
-        icSearch
+        icSearch,
+        icSettings
       ];
 }
 
@@ -230,4 +234,6 @@ class SvgGenImage {
   }
 
   String get path => _assetName;
+
+  String get keyName => _assetName;
 }
